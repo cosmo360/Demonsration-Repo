@@ -1,66 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<>, initial-scale=1.0">
-    <title>Cosmo360</title>
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>Blue Developer Directory</title>
+<script type="text/javascript">
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Welcome Back, '+localStorage.getItem('name'));
+	}
+}
+	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Please enter your email address</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+</script>
 </head>
 <body>
-    <h1>Home</h1>
-
-    <header>
-        <nav>
-            <ul>
-                <a href="index.html"><li>Home</li></a>
-                <a href="About.html"><li>About</li></a>
-                <a href="Contact.html"><li>Contact</li></a>
-                <a href="contactDemo.html"><li>Contact Demo</li></a>
-                <a href="contactAdjust.html">Contact Adjust</a>
-            </ul>
-        </nav>
-    </header>
-    <h1>My Web Page</h1>
-    <h2>Smaller</h2>
-    <h3>Smiley</h3>
-    <h5 class="title">Good morning</h5>
-    <div class="container">
-        <h2>Royalty</h2>
-            <h3>This is a perfect example of consistency.
-                 Continuing to do what needs to be done despite the time</h3>
-        
-
-    </div>
-
-    <div class="flex"><p>
-        Let's learn about flex box. It needs a parent container 
-        in order to work properly.  The elements inside of the 
-        container can be adjusted and centered and moved around easily
-    </p>
-    <div class="Box" id="box2">Box 2</div> 
-    <div class="Box" id="box1">Box 1</div> 
-    <div class="Box" id="box3">Box 3</div> 
-    <div class="Box" id="box4">Box 4</div> 
-    <div class="Box" id="box5">Box 5</div> 
-    <div class="Box" id="box6">Box 6</div> 
-    </div>
-
-
-    <section>
-        <p>This is a paragraph with text this is a paragraph</p>
-
-        <i>This is itTake out I am in a
-            two my needed later a tongue sleep, grab me to my statement for the on the phone from the phone and flat I love think is a little bit left in the just enough one: is a yen the owner of the semesteralic</i>
-        <em>This is emphasis</em>
-    </section>
-    <a href="https://amazon.com">Shopping</a><br>
-    <a href="About.html">About</a><br>
-    <img src="https://extra-images.akamaized.net/image/ea/1by1/2020/06/02/ea1669026ca35dfeb793a31989d501a5_xl.jpg"
-     alt="Kobe Bryant" height=400>
-     <img src="kb-24.png" alt="Kobe" height=300>
-
-     <a href="https://nba.com"><img src="kb-24.png" alt="Kobe" height="300" class="circle-img"></a>
-
-
+	<div id="container">
+		<header>
+			<h1><span class="blue-text">Blue</span> Developer Directory</h1>
+			<h2>Find A Developer <span class="white-text">NOW</span></h2>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Home</a></li>
+				<li class="menuitem"><a href="about.html">About Us</a></li>
+				<li class="menuitem"><a href="browse.html">Browse Developers</a></li>
+				<li class="menuitem"><a href="register.html">Register As Developer</a></li>
+				<li class="menuitem"><a href="contact.html">Contact Us</a></li>
+			</ul>
+			<div id="displayname">
+				<script type="text/javascript">
+					displayName();
+				</script>
+			</div>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>Links</h3>
+				<ul>
+					<li><a href="browse.html">SEO</a></li>
+					<li><a href="browse.html">PHP</a></li>
+					<li><a href="browse.html">Ajax</a></li>
+					<li><a href="browse.html">jQuery</a></li>
+					<li><a href="browse.html">Web design</a></li>
+					<li><a href="browse.html">Web Programming</a></li>
+					<li><a href="browse.html">Content Creation</a></li>
+					<li><a href="browse.html">Internet Marketing</a></li>
+					<li><a href="browse.html">XHTML Templates</a></li>
+				</ul>
+				
+				<div>
+				<br><br>
+				<h3>Newsletter</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Name: <input type="text" id="name" name="name">
+					Email: <input type="email" id="email" name="email">
+					<input type="submit" value="Send">
+					<a href="#" onClick="clearAll()">Clear</a>
+				</form>
+			</div>
+			</nav>
+	
+		</aside>
+		
+		<section>
+			<h2>Welcome to Blue Developer Directory! </h2>
+			<img class="float" src="images/web.jpg" alt="web developer directory">
+			<h3>Who Are We?</h3>
+			<p>We are a fictional website and service that list top web developers around the world. Search and browse fictional web developers on our website absolutley FREE!</p>
+			<h3>What Skills Do Our Developers Have?</h3>
+			<p>Our listed fictional web developers skill ranges from Graphic design with Photoshop, Illustrator and Fireworks to markup languages like HTML5, XHTML and XML to programming languages such as Javascript, PHP, Python and ASP</p>
+		</section>
+		
+		<section>		
+			<h2>Latest Blue Developers</h2>
+			<div class="developer">
+				<h4>Adam Sullivan</h4>
+				<ul>
+					<li><strong>Location: </strong> Boston USA</li>
+					<li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+					<li><strong>Availability:</strong> Full-Time
+				</ul>
+				<a href="#">View Profile</a>
+		</div><!--developer end-->
+		
+		<div class="developer">
+			<h4>Rick Monroe</h4>
+			<ul>
+				<li><strong>Location: </strong> Boston USA</li>
+				<li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+				<li><strong>Availability:</strong> Full-Time
+			</ul>
+			<a href="#">View Profile</a>
+		</div><!--developer end-->
+		
+		<div class="developer">
+			<h4>Michael Oliver</h4>
+			<ul>
+				<li><strong>Location: </strong> Boston USA</li>
+				<li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+				<li><strong>Availability:</strong> Full-Time
+			</ul>
+			<a href="#">View Profile</a>
+	    </div><!--developer end-->
+		
+		<div class="developer">
+			<h4>Megan Jennings</h4>
+			<ul>
+				<li><strong>Location: </strong> Boston USA</li>
+				<li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+				<li><strong>Availability:</strong> Full-Time
+			</ul>
+			<a href="#">View Profile</a>	
+		</div><!--developer end-->
+		
+		</section>
+	</div><!--container end-->
+	<div style="clear;both"></div>
+	<footer>
+		Copyright &copy; 2013, Blue Web Developer Directory - <a style="color: white;" href="info.html">Info</a>
+	</footer>
 </body>
 </html>
